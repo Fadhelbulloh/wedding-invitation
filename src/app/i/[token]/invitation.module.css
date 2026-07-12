@@ -13,3 +13,5 @@
   border: 1px solid #cbbfa8; border-radius: 8px; background: #fff;
 }
 .main button { background: #2b2b2b; color: #faf7f2; border: 0; }
+.wall { list-style: none; padding: 0; margin-top: 24px; display: grid; gap: 16px; }
+.wall li { background: #fff; border: 1px solid #e5ddd0; border-radius: 8px; padding: 16px; }

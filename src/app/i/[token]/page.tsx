@@ -1,14 +1,19 @@
 import { notFound } from "next/navigation";
 import { invitation } from "@/content/invitation";
 import { getGuest } from "@/lib/guests";
+import { listMessages } from "@/lib/storage";
 import Countdown from "./sections/Countdown";
 import RsvpForm from "./sections/RsvpForm";
+import MessageForm from "./sections/MessageForm";
 import styles from "./invitation.module.css";
+
+export const dynamic = "force-dynamic";
 
 export default async function InvitationPage({ params }: { params: Promise<{ token: string }> }) {
   const { token } = await params;
   const guest = await getGuest(token);
   if (!guest) notFound();
+  const approved = await listMessages("approved");
   const inv = invitation;
   return (
     <main className={styles.main}>
@@ -44,7 +49,12 @@ export default async function InvitationPage({ params }: { params: Promise<{ tok
       </section>
       <section className={styles.section} id="messages">
         <h2>Wishes</h2>
-        {/* Task 6 */}
+        <MessageForm token={token} guestName={guest} />
+        <ul className={styles.wall}>
+          {approved.map((m) => (
+            <li key={m.id}><strong>{m.name}</strong><p>{m.text}</p></li>
+          ))}
+        </ul>
       </section>
       <section className={styles.section}>
         <h2>Location</h2>
