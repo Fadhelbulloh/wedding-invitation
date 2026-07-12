@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { invitation } from "@/content/invitation";
 import { getGuest } from "@/lib/guests";
 import Countdown from "./sections/Countdown";
+import RsvpForm from "./sections/RsvpForm";
 import styles from "./invitation.module.css";
 
 export default async function InvitationPage({ params }: { params: Promise<{ token: string }> }) {
@@ -39,7 +40,7 @@ export default async function InvitationPage({ params }: { params: Promise<{ tok
       </section>
       <section className={styles.section} id="rsvp">
         <h2>RSVP</h2>
-        {/* Task 5 */}
+        <RsvpForm token={token} guestName={guest} />
       </section>
       <section className={styles.section} id="messages">
         <h2>Wishes</h2>
