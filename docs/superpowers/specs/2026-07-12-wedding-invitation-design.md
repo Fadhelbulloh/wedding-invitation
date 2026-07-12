@@ -34,6 +34,10 @@ A self-hosted online wedding invitation website. Developed, deployed, and hosted
 - Multi-language
 - Email/notification integrations
 
+## Change Expectation
+
+The design and invitation content are likely to be modified in the future. Implementation should keep content centralized (single content module) and sections/styling modular so later changes stay cheap and low-risk.
+
 ## Key Decisions
 
 | Decision | Choice |
