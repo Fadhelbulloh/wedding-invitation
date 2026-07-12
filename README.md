@@ -25,7 +25,7 @@ Open http://localhost:3000/i/abc123
 
 ## Admin
 
-The admin moderates guest messages (approve/delete) and views RSVPs at `/admin` — log in with `ADMIN_PASSWORD`.
+The admin moderates guest messages (approve/reject) and views RSVPs at `/admin` — log in with `ADMIN_PASSWORD`.
 
 ## Backup
 
