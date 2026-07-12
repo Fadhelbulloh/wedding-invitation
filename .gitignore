@@ -42,4 +42,5 @@ next-env.d.ts
 
 # project
 .superpowers/
-data/
+data/*
+!data/guests.example.json
