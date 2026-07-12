@@ -58,7 +58,7 @@ export default async function InvitationPage({ params }: { params: Promise<{ tok
       </section>
       <section className={styles.section}>
         <h2>Location</h2>
-        <iframe src={inv.mapEmbedUrl} className={styles.map} loading="lazy" />
+        <iframe src={inv.mapEmbedUrl} className={styles.map} loading="lazy" title="Location map" />
       </section>
       <section className={styles.section}>
         <h2>{inv.dressCode.title}</h2>

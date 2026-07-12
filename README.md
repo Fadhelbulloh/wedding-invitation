@@ -13,6 +13,8 @@ Open http://localhost:3000/i/abc123
 
 ## Deploy (VPS)
 
+- Go-live checklist: edit `src/content/invitation.ts` (names, dates, venue, map embed URL) and add gallery images to `public/gallery/` before building.
+
 1. `npm ci && npm run build`
 2. Set env: `ADMIN_PASSWORD`, `DATA_DIR=/var/lib/wedding-invitation` (dir must exist, writable by the app user, contains `guests.json`)
 3. Run `npm start` under a process manager (systemd/pm2) behind your reverse proxy (nginx/caddy) with HTTPS on your domain
