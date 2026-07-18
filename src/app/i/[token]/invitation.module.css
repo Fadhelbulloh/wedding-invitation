@@ -1,4 +1,4 @@
-.main { max-width: 480px; margin: 0 auto; padding: 0 20px 80px; position: relative; }
+.main { max-width: 480px; margin: 0 auto; padding: 0 20px 80px; position: relative; z-index: 1; }
 
 /* Hero */
 .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; text-align: center; gap: 12px; overflow: hidden; }
@@ -41,3 +41,93 @@
 .countdownNumbers { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 3rem; color: #b8965a; }
 .countdownLabel { font-family: 'Inter', sans-serif; font-size: 0.7rem; color: #6b5e50; text-transform: uppercase; letter-spacing: 0.1em; }
 .countdownDate { margin-top: 16px; font-family: 'Inter', sans-serif; color: #6b5e50; }
+
+/* Hero animation */
+.heroInner {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: 12px;
+  background: radial-gradient(ellipse at center, #f5efe6 0%, #faf7f2 70%);
+  will-change: transform;
+}
+.heroContent { position: relative; z-index: 1; }
+
+/* Parallax */
+.parallaxContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.parallaxLayer {
+  position: absolute;
+  border-radius: 50%;
+  will-change: transform;
+}
+
+/* Lightbox */
+.lightboxOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.lightboxImage {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 4px;
+  cursor: default;
+}
+.lightboxClose {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  min-height: auto;
+  width: auto;
+  padding: 8px;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Message flight */
+.messageFlight {
+  position: relative;
+  height: 150vh;
+  perspective: 1000px;
+  overflow: visible;
+}
+.messageCard {
+  position: absolute;
+  width: 80%;
+  left: 10%;
+  background: #fff;
+  border: 1px solid #e5ddd0;
+  border-radius: 12px;
+  padding: 20px;
+  will-change: transform, opacity;
+}
+.messageCard strong {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.1rem;
+}
+.messageCard p {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
