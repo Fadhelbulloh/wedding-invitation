@@ -45,3 +45,4 @@ next-env.d.ts
 .superpowers/
 data/*
 !data/guests.example.json
+.ai-context
