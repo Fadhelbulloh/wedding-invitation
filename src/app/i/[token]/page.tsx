@@ -7,6 +7,7 @@ import RsvpForm from "./sections/RsvpForm";
 import MessageForm from "./sections/MessageForm";
 import ScrollReveal from "./sections/ScrollReveal";
 import HeroSection from "./sections/HeroSection";
+import ParallaxLayers from "./sections/ParallaxLayers";
 import styles from "./invitation.module.css";
 
 export const dynamic = "force-dynamic";
@@ -19,6 +20,7 @@ export default async function InvitationPage({ params }: { params: Promise<{ tok
   const inv = invitation;
   return (
     <main className={styles.main}>
+      <ParallaxLayers />
       <HeroSection
         partner1={inv.couple.partner1}
         partner2={inv.couple.partner2}
