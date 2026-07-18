@@ -8,9 +8,10 @@ gsap.registerPlugin(ScrollTrigger);
 interface ScrollRevealProps {
   children: React.ReactNode;
   className?: string;
+  id?: string;
 }
 
-export default function ScrollReveal({ children, className }: ScrollRevealProps) {
+export default function ScrollReveal({ children, className, id }: ScrollRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const el = ref.current;
@@ -25,5 +26,5 @@ export default function ScrollReveal({ children, className }: ScrollRevealProps)
     });
     return () => trigger.kill();
   }, []);
-  return <div ref={ref} className={className}>{children}</div>;
+  return <div ref={ref} className={className} id={id}>{children}</div>;
 }

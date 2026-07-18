@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -12,7 +12,8 @@ interface MessageFlightProps {
 
 export default function MessageFlight({ messages, styles }: MessageFlightProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const reduced = typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const [reduced, setReduced] = useState(false);
+  useEffect(() => { setReduced(window.matchMedia("(prefers-reduced-motion: reduce)").matches); }, []);
 
   // Fewer than 3 messages or reduced motion: static list
   if (messages.length < 3 || reduced) {

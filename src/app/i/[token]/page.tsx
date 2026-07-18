@@ -54,14 +54,14 @@ export default async function InvitationPage({ params }: { params: Promise<{ tok
           <GalleryGrid images={inv.gallery} styles={styles} />
         </section>
       </ScrollReveal>
-      <ScrollReveal className={styles.section}>
-        <section id="rsvp">
+      <ScrollReveal className={styles.section} id="rsvp">
+        <section>
           <h2>RSVP</h2>
           <RsvpForm token={token} guestName={guest} />
         </section>
       </ScrollReveal>
-      <ScrollReveal className={styles.section}>
-        <section id="messages">
+      <ScrollReveal className={styles.section} id="messages">
+        <section>
           <h2>Wishes</h2>
           <MessageForm token={token} guestName={guest} />
           <MessageFlight

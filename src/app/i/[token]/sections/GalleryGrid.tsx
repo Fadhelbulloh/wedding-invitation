@@ -41,6 +41,18 @@ export default function GalleryGrid({ images, styles }: GalleryGridProps) {
     return () => { document.body.style.overflow = ""; };
   }, [lightbox]);
 
+  // Keyboard accessibility: Escape to close, focus close button on open
+  useEffect(() => {
+    if (lightbox === null) return;
+    const closeBtn = document.querySelector<HTMLButtonElement>('[data-lightbox-close]');
+    closeBtn?.focus();
+    function handleKey(e: KeyboardEvent) {
+      if (e.key === "Escape") setLightbox(null);
+    }
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [lightbox]);
+
   const handleSwipe = useCallback((e: React.TouchEvent) => {
     const diff = touchStart.current - e.changedTouches[0].clientX;
     if (Math.abs(diff) < 50) return;
@@ -64,8 +76,11 @@ export default function GalleryGrid({ images, styles }: GalleryGridProps) {
           onClick={() => setLightbox(null)}
           onTouchStart={(e) => { touchStart.current = e.touches[0].clientX; }}
           onTouchEnd={handleSwipe}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Photo lightbox"
         >
-          <button className={styles.lightboxClose} onClick={() => setLightbox(null)}>×</button>
+          <button data-lightbox-close className={styles.lightboxClose} onClick={() => setLightbox(null)}>×</button>
           <img
             className={styles.lightboxImage}
             src={images[lightbox]}
