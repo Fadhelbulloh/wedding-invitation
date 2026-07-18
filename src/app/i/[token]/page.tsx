@@ -8,6 +8,7 @@ import MessageForm from "./sections/MessageForm";
 import ScrollReveal from "./sections/ScrollReveal";
 import HeroSection from "./sections/HeroSection";
 import ParallaxLayers from "./sections/ParallaxLayers";
+import GalleryGrid from "./sections/GalleryGrid";
 import styles from "./invitation.module.css";
 
 export const dynamic = "force-dynamic";
@@ -49,9 +50,7 @@ export default async function InvitationPage({ params }: { params: Promise<{ tok
       <ScrollReveal className={styles.section}>
         <section>
           <h2>Gallery</h2>
-          <div className={styles.gallery}>
-            {inv.gallery.map((src) => <img key={src} src={src} alt="" loading="lazy" />)}
-          </div>
+          <GalleryGrid images={inv.gallery} styles={styles} />
         </section>
       </ScrollReveal>
       <ScrollReveal className={styles.section}>
