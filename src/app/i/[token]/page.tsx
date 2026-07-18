@@ -6,6 +6,7 @@ import Countdown from "./sections/Countdown";
 import RsvpForm from "./sections/RsvpForm";
 import MessageForm from "./sections/MessageForm";
 import ScrollReveal from "./sections/ScrollReveal";
+import HeroSection from "./sections/HeroSection";
 import styles from "./invitation.module.css";
 
 export const dynamic = "force-dynamic";
@@ -18,12 +19,13 @@ export default async function InvitationPage({ params }: { params: Promise<{ tok
   const inv = invitation;
   return (
     <main className={styles.main}>
-      <section className={styles.hero}>
-        <p className={styles.kicker}>The wedding of</p>
-        <h1>{inv.couple.partner1} &amp; {inv.couple.partner2}</h1>
-        <p>{inv.dateDisplay}</p>
-        <p className={styles.guest}>Dear {guest}</p>
-      </section>
+      <HeroSection
+        partner1={inv.couple.partner1}
+        partner2={inv.couple.partner2}
+        dateDisplay={inv.dateDisplay}
+        guest={guest}
+        styles={styles}
+      />
       <ScrollReveal className={styles.section}>
         <section>
           <h2>Events</h2>
