@@ -35,7 +35,7 @@ export default async function InvitationPage({ params }: { params: Promise<{ tok
       </section>
       <section className={styles.section}>
         <h2>Counting down</h2>
-        <Countdown targetISO={inv.dateISO} />
+        <Countdown targetISO={inv.dateISO} dateDisplay={inv.dateDisplay} styles={styles} />
       </section>
       <section className={styles.section}>
         <h2>Gallery</h2>
