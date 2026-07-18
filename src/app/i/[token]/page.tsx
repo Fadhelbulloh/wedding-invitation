@@ -5,6 +5,7 @@ import { listMessages } from "@/lib/storage";
 import Countdown from "./sections/Countdown";
 import RsvpForm from "./sections/RsvpForm";
 import MessageForm from "./sections/MessageForm";
+import MessageFlight from "./sections/MessageFlight";
 import ScrollReveal from "./sections/ScrollReveal";
 import HeroSection from "./sections/HeroSection";
 import ParallaxLayers from "./sections/ParallaxLayers";
@@ -63,11 +64,10 @@ export default async function InvitationPage({ params }: { params: Promise<{ tok
         <section id="messages">
           <h2>Wishes</h2>
           <MessageForm token={token} guestName={guest} />
-          <ul className={styles.wall}>
-            {approved.map((m) => (
-              <li key={m.id}><strong>{m.name}</strong><p>{m.text}</p></li>
-            ))}
-          </ul>
+          <MessageFlight
+            messages={approved.map((m) => ({ id: m.id, name: m.name, text: m.text }))}
+            styles={styles}
+          />
         </section>
       </ScrollReveal>
       <ScrollReveal className={styles.section}>
