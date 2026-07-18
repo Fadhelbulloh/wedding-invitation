@@ -22,7 +22,7 @@ export default function Countdown({ targetISO, dateDisplay, styles }: CountdownP
   const s = Math.floor(left / 1000) % 60;
   return (
     <div className={styles.countdown}>
-      <div style={{ display: "flex", justifyContent: "center", gap: 24 }}>
+      <div className={styles.countdownRow}>
         {[
           { value: d, label: "Days" },
           { value: h, label: "Hours" },

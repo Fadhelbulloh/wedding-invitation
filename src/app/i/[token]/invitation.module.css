@@ -41,6 +41,7 @@
 .countdownNumbers { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 3rem; color: #b8965a; }
 .countdownLabel { font-family: 'Inter', sans-serif; font-size: 0.7rem; color: #6b5e50; text-transform: uppercase; letter-spacing: 0.1em; }
 .countdownDate { margin-top: 16px; font-family: 'Inter', sans-serif; color: #6b5e50; }
+.countdownRow { display: flex; justify-content: center; gap: 24px; }
 
 /* Hero animation */
 .heroInner {
